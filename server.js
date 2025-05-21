@@ -21,10 +21,7 @@ console.log("MONGODB_URI:", process.env.MONGODB_URI);
 console.log("Port:", port);
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("MongoDB connected");
     console.log("Connected to database:", mongoose.connection.db.databaseName);
