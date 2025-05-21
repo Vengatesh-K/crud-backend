@@ -7,15 +7,12 @@ const port = process.env.PORT || 5000;
 dotenv.config();
 
 
-const cards = require('./routes/cards');
-
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+console.log(process.env.MONGODB_URI, 'mongodb uri')
+
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
